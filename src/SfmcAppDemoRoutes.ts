@@ -191,10 +191,14 @@ export default class SfmcAppDemoRoutes
         let sfmcAuthServiceApiUrl = "https://martek.hosted.emailanalyst.com/rest/auth/login_via_saml?ssoGroup=martekSSO";
         Utils.logInfo("oauth token is called, waiting for status...");
         axios.post(sfmcAuthServiceApiUrl, postBody, {"headers" : headers})            
-        .then((response : any) => {
+        .then((result : any) => {
             // success
             Utils.logInfo("Success, got auth token from MC...");
-            let accessToken = response.data.access_token;
-        });
+            let accessToken = result.data.access_token;
+            res.status(200).send(result);
+        })
+	.catch((err) => {
+	     res.status(500).send(err);
+	 });
     }
 }
