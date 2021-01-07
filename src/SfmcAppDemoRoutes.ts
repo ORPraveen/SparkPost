@@ -1,5 +1,5 @@
 'use strict';
-
+import axios from 'axios';
 import express = require("express");
 import jwt = require('jwt-simple');
 import SfmcApiHelper from './SfmcApiHelper';
@@ -176,6 +176,25 @@ export default class SfmcAppDemoRoutes
         //let self = this;
         Utils.logInfo("Creating Data extension Dynamically.");
         //self._apiHelper.createDataExtension(req, res);
-		Utils.logInfo("Request Body." + req);
+        Utils.logInfo("Request Body." + req);
+
+        let headers = {
+            'Content-Type': 'application/json',
+        };
+
+        let postBody = {
+            'clientId': 'clientId',
+            'clientSecret': 'clientSecret',
+            'refreshToken': 'refreshToken'
+        };
+        
+        let sfmcAuthServiceApiUrl = "https://mcj6cy1x9m-t5h5tz0bfsyqj38ky.auth.marketingcloudapis.com/v2/token";
+        Utils.logInfo("oauth token is called, waiting for status...");
+        axios.post(sfmcAuthServiceApiUrl, postBody, {"headers" : headers})            
+        .then((response : any) => {
+            // success
+            Utils.logInfo("Success, got auth token from MC...");
+            let accessToken = response.data.access_token;
+        });
     }
 }
