@@ -183,12 +183,12 @@ export default class SfmcAppDemoRoutes
         };
 
         let postBody = {
-            'clientId': 'clientId',
-            'clientSecret': 'clientSecret',
-            'refreshToken': 'refreshToken'
+            'Account ID': 'salesforceintegration',
+            'Name': 'BS',
+            'User ID': 'bryan@martekApps'
         };
         
-        let sfmcAuthServiceApiUrl = "https://mcj6cy1x9m-t5h5tz0bfsyqj38ky.auth.marketingcloudapis.com/v2/token";
+        let sfmcAuthServiceApiUrl = "https://martek.hosted.emailanalyst.com/rest/auth/login_via_saml?ssoGroup=martekSSO";
         Utils.logInfo("oauth token is called, waiting for status...");
         axios.post(sfmcAuthServiceApiUrl, postBody, {"headers" : headers})            
         .then((response : any) => {
