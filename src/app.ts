@@ -56,8 +56,8 @@ app.use(favicon(path.join(__dirname,'../static','images','favicons', 'favicon.ic
 // Routes: pages
 
 
-app.get('/', function(req, res) { Utils.initSampleDataAndRenderView(req, res, 'hearsayapi.ejs') });
-app.get('/apidemo', function(req, res) { Utils.initSampleDataAndRenderView(req, res, 'hearsayapi.ejs') });
+app.get('/', function(req, res) { Utils.initSampleDataAndRenderView(req, res, 'sparkpostapi.ejs') });
+app.get('/apidemo', function(req, res) { Utils.initSampleDataAndRenderView(req, res, 'sparkpostapi.ejs') });
 app.get('/appdemo', function(req, res) { Utils.initSampleDataAndRenderView(req, res, 'sparkpost.ejs') });
 app.get('/jbdemo', function(req, res) { Utils.initSampleDataAndRenderView(req, res, 'jbdemo.ejs') });
 
