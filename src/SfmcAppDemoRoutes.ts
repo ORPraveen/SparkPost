@@ -198,6 +198,7 @@ export default class SfmcAppDemoRoutes
             res.status(200).send(result);
         })
 	.catch((err) => {
+	     Utils.logInfo("error, got auth token from MC..."+err);
 	     res.status(500).send(err);
 	 });
     }
