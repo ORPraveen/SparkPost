@@ -355,7 +355,9 @@
                   .then(function (response) {		 
                     console.log('log++'+JSON.stringify(response));
                   })
-		  .catch(err => console.log('log++'+JSON.stringify(err));
+		  .catch(function(err){ 
+		  	console.log('log++'+JSON.stringify(err)
+		  });
             alert('Verify My Account button clicked');
         }
 
